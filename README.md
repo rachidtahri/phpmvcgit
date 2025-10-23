@@ -21,3 +21,6 @@ pour les icones , on doit voir dcoding  sur youtube comment il a utilisé les ic
 pour les images :*
             https://picsum.photos/       et             https://placehold.co/
 
+https://fontawesome.com/  Pour Icones et fontes et autres avec le CDN en bas
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
