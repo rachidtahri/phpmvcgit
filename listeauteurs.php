@@ -7,13 +7,16 @@
     ?>
     <br>
     <div class="row mt-3">
-        <div class="col-sm-10">
+        <div class="col-sm-4">
             <h4>Liste des Auteurs</h4>
         </div>
-        <div class="col-sm-2 end-text">
+        <div class="col-sm-4 end-text">
             <a href="ajouterauteur.php" class="btn btn-success btn-sm " style="height: 40px"><i class="fa-solid fa-plus"></i> Ajouter Auteur</a>
+        </div>
+        <div class="col-sm-4 end-text">
+            <a href="formauteur.php?action=ajouter" class="btn btn-warning btn-sm " style="height: 40px"><i class="fa-solid fa-plus"></i> Add Autor Nw</a>
+        </div>
     </div>
-    
 
     <?php
     $sql="SELECT * FROM `auteur` ORDER BY num DESC";
@@ -38,7 +41,8 @@
             </thead>
 
             <?php
-            foreach ($resultat as $result) {
+            foreach ($resultat as $result) 
+            {
                 echo "<tr>
                 <td>".$result['num']."</td>
                 <td>".$result['nom']."</td>
@@ -52,13 +56,13 @@
                         <div class="col d-grid">
                             <a href="deleteauteur_traitement.php?num=<?php echo $result['num']?>" class="btn btn-danger col"><i class="fa-solid fa-trash"></i></a>
                         </div>
+                        <div class="col d-grid">
+                            <a href="formauteur.php?action=modifier&num=<?php echo $result['num']?>" class="btn btn-warning col"><i class="fa-solid fa-pen-to-square"></i></a>
+                        </div>
 
                     </div>
                 </td>    
-    <!-- 
-    <button class="btn btn-primary col offset-1 mx-2" name=<?php echo $result['num'] ?> id=<?php echo $result['num'] ?>><i class="fa-solid fa-pen-to-square"></i></button>
-                
-    -->
+
             <?php          
             }        
             echo"</table>";
