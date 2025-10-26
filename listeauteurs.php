@@ -11,12 +11,12 @@
             <h4>Liste des Auteurs</h4>
         </div>
         <div class="col-sm-2 end-text">
-            <a href="#" class="btn btn-success btn-sm " style="height: 40px"><i class="fa-solid fa-plus"></i> Ajouter Auteur</a>
+            <a href="ajouterauteur.php" class="btn btn-success btn-sm " style="height: 40px"><i class="fa-solid fa-plus"></i> Ajouter Auteur</a>
     </div>
     
 
     <?php
-    $sql="SELECT * FROM `auteur`";
+    $sql="SELECT * FROM `auteur` ORDER BY num DESC";
     try {
         $req = $pdo->prepare($sql);
         $req->execute();
@@ -33,6 +33,7 @@
                     <td scope='col'>Nom Auteur</td>
                     <td scope='col'>Prenom Auteur</td>
                     <td scope='col'>Code Nationalité</td>
+                    <td scope='col'>Opérations</td>
                 </tr>
             </thead>
 
@@ -42,7 +43,23 @@
                 <td>".$result['num']."</td>
                 <td>".$result['nom']."</td>
                 <td>".$result['prenom']."</td>
-                <td>".$result['numNationalite']."</td> </tr>";          
+                <td>".$result['numNationalite']."</td> ";?>
+                <td>
+                    <div class="row d-grid gap-2 d-md-flex justify-content-md-center"> <!-- Pour centrer les boutons -->
+                        <div class="col d-grid">
+                            <a href="modifierauteur.php?num=<?php echo $result['num']?>" class="btn btn-primary col"><i class="fa-solid fa-pen-to-square"></i></a>
+                        </div>
+                        <div class="col d-grid">
+                            <a href="" class="btn btn-danger col"><i class="fa-solid fa-trash"></i></a>
+                        </div>
+
+                    </div>
+                </td>    
+    <!-- 
+    <button class="btn btn-primary col offset-1 mx-2" name=<?php echo $result['num'] ?> id=<?php echo $result['num'] ?>><i class="fa-solid fa-pen-to-square"></i></button>
+                
+    -->
+            <?php          
             }        
             echo"</table>";
     

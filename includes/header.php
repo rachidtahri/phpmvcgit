@@ -37,8 +37,8 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Listes_Tab</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="./listeauteurs.php">Liste Auteurs</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="./listeauteurs.php">Liste des Auteurs</a>
+            <a class="dropdown-item" href="ajouterauteur.php">Ajouter Auteur</a>
             <a class="dropdown-item" href="#">Something else here</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Separated link</a>
