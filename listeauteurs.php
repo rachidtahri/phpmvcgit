@@ -50,7 +50,7 @@
                             <a href="modifierauteur.php?num=<?php echo $result['num']?>" class="btn btn-primary col"><i class="fa-solid fa-pen-to-square"></i></a>
                         </div>
                         <div class="col d-grid">
-                            <a href="" class="btn btn-danger col"><i class="fa-solid fa-trash"></i></a>
+                            <a href="deleteauteur_traitement.php?num=<?php echo $result['num']?>" class="btn btn-danger col"><i class="fa-solid fa-trash"></i></a>
                         </div>
 
                     </div>
