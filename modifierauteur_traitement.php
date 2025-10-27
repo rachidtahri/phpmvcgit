@@ -5,12 +5,12 @@ include './includes/header.php';
 // ajouterauteur_traitement.php
 require_once 'BDD/connexion.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $num = (int) $_POST['num'];
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $numNationalite = (int) $_POST['numNationalite'];
-
+    $num = (int) $_POST['num'];
     $sql = "UPDATE auteur SET nom=:nom,prenom=:prenom,numNationalite=:numNationalite WHERE num = :num";
+    
     try {
         $req = $pdo->prepare($sql);
         $req->bindParam(':num', $num);

@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 <div class="container col-sm-6 offset-sm-3"> <!-- Pour centrer le formulaire -->
 
-    <form action="modifierauteur_traitement.php" method="post">
+    <form action="formauteur_traitement.php?action=<?php echo $action ?>" method="post">
         <input type="hidden" name="num" id="num" value="<?php echo htmlspecialchars($auteur['num'] ?? ''); ?>">
         <div class="mb-3 form-group">
             <label for="nom" class="form-label">Nom Auteur</label>
@@ -60,8 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             <div class="col-sm-4 d-grid ">
                 <button type="button" class="btn btn-primary" onclick="window.location.href='listeauteurs.php'">Retour à la Liste</button>
             </div>
-        </div>
-                      
+        </div>            
     </form>
 
 </div>

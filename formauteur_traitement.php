@@ -2,23 +2,34 @@
 
 <?php
 include './includes/header.php';
-// ajouterauteur_traitement.php
+
 require_once 'BDD/connexion.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $num = (int) $_POST['num'];
+    $action=$_GET['action'];
+
+    if ($action == 'modifier') {
+        $num = (int) $_POST['num'];
+        $sql = "UPDATE auteur SET nom=:nom,prenom=:prenom,numNationalite=:numNationalite WHERE num = :num";
+
+    }else {
+            $sql = "INSERT INTO `auteur` (nom, prenom, numNationalite) VALUES (:nom, :prenom, :numNationalite)";
+    }
+
+  
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $numNationalite = (int) $_POST['numNationalite'];
 
-    $sql = "UPDATE auteur SET nom=:nom,prenom=:prenom,numNationalite=:numNationalite WHERE num = :num";
     try {
         $req = $pdo->prepare($sql);
-        $req->bindParam(':num', $num);
+        if ($action=='modifier'){
+             $req->bindParam(':num', $num); 
+        }    
         $req->bindParam(':nom', $nom , PDO::PARAM_STR);
         $req->bindParam(':prenom', $prenom, PDO::PARAM_STR);
         $req->bindParam(':numNationalite', $numNationalite);
         $req->execute();   
-        echo "<br><br><div class='alert alert-success' role='alert'>Auteur Modifié 
+        echo "<br><br><div class='alert alert-success' role='alert'>Auteur ".$action."
         avec succès!</div>";
     } catch (PDOException $e) {
         echo "<br><br><div class='alert alert-danger' role='alert'>Erreur lors de la Modification de l'auteur: " . $e->getMessage() . "</div>";
